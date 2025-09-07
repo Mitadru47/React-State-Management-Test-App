@@ -28,14 +28,14 @@ function Product({ product }){
 
   return (
 
-    <>
+    <div className="product">
     
       <h4>{`${product.name}`}</h4>
       <p>{`${product.description}`}</p>
 
       <button onClick={() => handleClick(product)}>Add to Cart</button>
     
-    </>
+    </div>
   );
 }
 
@@ -43,9 +43,9 @@ export function Products(props){
 
   return (
 
-    <>
+    <div id="products">
       {props.products.map((product, index) => <Product key={index} product={product} />)}
     
-    </>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ function calculateTotalCartItemCount(cartItems){
 
 function App() {
 
-  const [ cartItems, setCartItems ] = useState([{ name: "Placeholder Item", description: "Placeholder Description", count: 1 }]);
+  const [ cartItems, setCartItems ] = useState([]);
   console.log(cartItems);
 
   const products = [
@@ -17,7 +17,11 @@ function App() {
     { addToCart: setCartItems, name: "Product 1", description: "This is a random description of the EPICNESS of Product 1. There's nothing like it. Grab it now!" },
     { addToCart: setCartItems, name: "Product 2", description: "This is a random description of the EPICNESS of Product 2. There's nothing like it. Grab it now!" },
     { addToCart: setCartItems, name: "Product 3", description: "This is a random description of the EPICNESS of Product 3. There's nothing like it. Grab it now!" },
-    { addToCart: setCartItems, name: "Product 4", description: "This is a random description of the EPICNESS of Product 4. There's nothing like it. Grab it now!" }
+    { addToCart: setCartItems, name: "Product 4", description: "This is a random description of the EPICNESS of Product 4. There's nothing like it. Grab it now!" },
+    { addToCart: setCartItems, name: "Product 5", description: "This is a random description of the EPICNESS of Product 5. There's nothing like it. Grab it now!" },
+    { addToCart: setCartItems, name: "Product 6", description: "This is a random description of the EPICNESS of Product 6. There's nothing like it. Grab it now!" },
+    { addToCart: setCartItems, name: "Product 7", description: "This is a random description of the EPICNESS of Product 7. There's nothing like it. Grab it now!" },
+    { addToCart: setCartItems, name: "Product 8", description: "This is a random description of the EPICNESS of Product 8. There's nothing like it. Grab it now!" }
 
   ];
 

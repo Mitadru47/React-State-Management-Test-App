@@ -3,6 +3,10 @@ import { useState } from "react";
 import { Header } from "./Header";
 import { Products } from "./Products";
 
+function calculateTotalCartItemCount(cartItems){ 
+  return cartItems.reduce((totalCartItemCount, cartItem) => totalCartItemCount + cartItem.count, 0);
+}
+
 function App() {
 
   const [ cartItems, setCartItems ] = useState([{ name: "Placeholder Item", description: "Placeholder Description", count: 1 }]);
@@ -21,7 +25,7 @@ function App() {
     
     <>
     
-      <Header cartItemCount={cartItems.length} />
+      <Header cartUniqueItemCount={cartItems.length} totalCartItemCount={calculateTotalCartItemCount(cartItems)} />
       <Products products={products} />
 
     </>

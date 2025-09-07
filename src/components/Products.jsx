@@ -1,6 +1,27 @@
-function handleClick(increaseCount){
-  increaseCount((prevCount) => prevCount + 1);
+function handleClick(product){
 
+  product.addToCart((prevItems) => {
+    
+    let itemCount = 0, cartItems = [], quantityIncreased = false;
+
+    prevItems.forEach((prevItem) => {
+
+      itemCount = prevItem.count;
+
+      if(prevItem.name === product.name && prevItem.description === product.description){
+        
+        itemCount++;
+        quantityIncreased = true;
+      }
+
+      cartItems.push({ name: prevItem.name, description: prevItem.description, count: itemCount });
+    });
+
+    if(!quantityIncreased)
+      cartItems.push({ name: product.name, description: product.description, count: 1 });
+
+    return cartItems;
+  });
 }
 
 function Product({ product }){
@@ -12,7 +33,7 @@ function Product({ product }){
       <h4>{`${product.name}`}</h4>
       <p>{`${product.description}`}</p>
 
-      <button onClick={() => handleClick(product.increaseCount)}>Add to Cart</button>
+      <button onClick={() => handleClick(product)}>Add to Cart</button>
     
     </>
   );

@@ -1,4 +1,4 @@
-function Links({ cartUniqueItemCount, totalCartItemCount }){
+function Links({ uniqueCartItemCount, totalCartItemCount }){
 
   return (
 
@@ -8,7 +8,7 @@ function Links({ cartUniqueItemCount, totalCartItemCount }){
 
         <ul>
 
-          <li>{`Unique Item(s) in Cart: ${cartUniqueItemCount}`}</li>
+          <li>{`Unique Item(s) in Cart: ${uniqueCartItemCount}`}</li>
           <li>{`Total Item(s) in Cart: ${totalCartItemCount}`}</li>
 
         </ul>
@@ -21,14 +21,14 @@ function Links({ cartUniqueItemCount, totalCartItemCount }){
   );
 }
 
-export function Header({ cartUniqueItemCount, totalCartItemCount }) {
+export function Header({ uniqueCartItemCount, totalCartItemCount }) {
 
   return (
 
     <div id="header">
     
       <h2>Random Header</h2>
-      <Links cartUniqueItemCount={cartUniqueItemCount} totalCartItemCount={totalCartItemCount} />      
+      <Links uniqueCartItemCount={uniqueCartItemCount} totalCartItemCount={totalCartItemCount} />      
 
     </div>
   );

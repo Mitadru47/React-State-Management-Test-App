@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Header } from "./Header";
 import { Products } from "./Products";
 
+import { CartContext } from "../utils/contexts";
+
 function App() {
 
   const [ cartItems, setCartItems ] = useState([]);
@@ -50,8 +52,12 @@ function App() {
     
     <>
     
-      <Header uniqueCartItemCount={cartItems.length} totalCartItemCount={cartItems.reduce((totalCartItemCount, cartItem) => totalCartItemCount + cartItem.count, 0)} />
-      <Products products={products} addToCart={addToCart}/>
+      <CartContext value={{ products, cartItems, addToCart }}>
+
+        <Header />
+        <Products products={products} addToCart={addToCart}/>
+
+      </CartContext>
 
     </>
   );

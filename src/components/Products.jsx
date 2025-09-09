@@ -1,4 +1,9 @@
-function Product({ product, addToCart }){
+import { useContext } from "react";
+import { CartContext } from "../utils/contexts";
+
+function Product({ product }){
+
+  const { addToCart } = useContext(CartContext);
 
   return (
 
@@ -13,12 +18,14 @@ function Product({ product, addToCart }){
   );
 }
 
-export function Products({ products, addToCart }){
+export function Products(){
+
+  const { products } = useContext(CartContext);
 
   return (
 
     <div id="products"> 
-      {products.map((product, index) => <Product key={index} product={product} addToCart={addToCart} />)}
+      {products.map((product, index) => <Product key={index} product={product} />)}
     
     </div>
   );

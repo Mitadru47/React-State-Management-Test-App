@@ -1,4 +1,9 @@
-function Links({ uniqueCartItemCount, totalCartItemCount }){
+import { useContext } from "react";
+import { CartContext } from "../utils/contexts";
+
+function Links(){
+
+  const { cartItems } = useContext(CartContext);
 
   return (
 
@@ -8,8 +13,8 @@ function Links({ uniqueCartItemCount, totalCartItemCount }){
 
         <ul>
 
-          <li>{`Unique Item(s) in Cart: ${uniqueCartItemCount}`}</li>
-          <li>{`Total Item(s) in Cart: ${totalCartItemCount}`}</li>
+          <li>{`Unique Item(s) in Cart: ${cartItems.length}`}</li>
+          <li>{`Total Item(s) in Cart: ${cartItems.reduce((totalCartItemCount, cartItem) => totalCartItemCount + cartItem.count, 0)}`}</li>
 
         </ul>
 
@@ -21,14 +26,14 @@ function Links({ uniqueCartItemCount, totalCartItemCount }){
   );
 }
 
-export function Header({ uniqueCartItemCount, totalCartItemCount }) {
+export function Header() {
 
   return (
 
     <div id="header">
     
       <h2>Random Header</h2>
-      <Links uniqueCartItemCount={uniqueCartItemCount} totalCartItemCount={totalCartItemCount} />      
+      <Links />      
 
     </div>
   );

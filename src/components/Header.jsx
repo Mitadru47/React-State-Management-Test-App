@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 function Links({ uniqueCartItemCount, totalCartItemCount }){
 
   return (
@@ -21,7 +23,12 @@ function Links({ uniqueCartItemCount, totalCartItemCount }){
   );
 }
 
-export function Header({ uniqueCartItemCount, totalCartItemCount }) {
+export function Header() {
+
+  const cartItems = useSelector((state) => state.cartItems);
+
+  const uniqueCartItemCount = cartItems.length; 
+  const totalCartItemCount = cartItems.reduce((totalCartItemCount, cartItem) => totalCartItemCount + cartItem.count, 0);
 
   return (
 

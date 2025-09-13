@@ -55,7 +55,7 @@ function App() {
       <CartContext value={{ products, cartItems, addToCart }}>
 
         <Header />
-        <Products products={products} addToCart={addToCart}/>
+        <Products />
 
       </CartContext>
 
